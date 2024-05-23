@@ -19,7 +19,7 @@ public:
 int main() {
     const int currentYear = 2024;
 
-    // Масив об'єктів Person
+
     const int numPeople = 5;
     Person people[numPeople] = {
         {"Smith", "John", "Doe", "123 Main St", 'M', "Bachelor's", 1980},
