@@ -1,6 +1,5 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
-#include <vector>
 
 class Person {
 public:
@@ -18,9 +17,11 @@ public:
 };
 
 int main() {
-    int currentYear = 2024;
+    const int currentYear = 2024;
 
-    std::vector<Person> people = {
+    // Масив об'єктів Person
+    const int numPeople = 5;
+    Person people[numPeople] = {
         {"Smith", "John", "Doe", "123 Main St", 'M', "Bachelor's", 1980},
         {"Johnson", "Alice", "Mary", "456 Elm St", 'F', "Master's", 1995},
         {"Williams", "Robert", "James", "789 Oak St", 'M', "PhD", 1988},
@@ -33,23 +34,23 @@ int main() {
     std::cin >> ageLimit;
 
     std::cout << "People whose age exceeds " << ageLimit << ":" << std::endl;
-    for (const auto& person : people) {
-        if (person.getAge(currentYear) > ageLimit) {
-            std::cout << person.surname << " " << person.firstName << " " << person.middleName << std::endl;
+    for (int i = 0; i < numPeople; ++i) {
+        if (people[i].getAge(currentYear) > ageLimit) {
+            std::cout << people[i].surname << " " << people[i].firstName << " " << people[i].middleName << std::endl;
         }
     }
 
     std::cout << "\nPeople with higher education:" << std::endl;
-    for (const auto& person : people) {
-        if (person.education == "Master's" || person.education == "PhD") {
-            std::cout << person.surname << " " << person.firstName << " " << person.middleName << std::endl;
+    for (int i = 0; i < numPeople; ++i) {
+        if (people[i].education == "Master's" || people[i].education == "PhD") {
+            std::cout << people[i].surname << " " << people[i].firstName << " " << people[i].middleName << std::endl;
         }
     }
 
     std::cout << "\nMale citizens:" << std::endl;
-    for (const auto& person : people) {
-        if (person.gender == 'M') {
-            std::cout << person.surname << " " << person.firstName << " " << person.middleName << std::endl;
+    for (int i = 0; i < numPeople; ++i) {
+        if (people[i].gender == 'M') {
+            std::cout << people[i].surname << " " << people[i].firstName << " " << people[i].middleName << std::endl;
         }
     }
 
